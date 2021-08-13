@@ -26,6 +26,10 @@ fi
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
+#vim, nano
+alias v='vim'
+alias n='nano'
+
 #list
 alias ls='exa --color=auto'
 alias la='exa -a'
@@ -103,6 +107,9 @@ alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable s
 #quickly kill conkies
 alias kc='killall conky'
 
+#quickly kill dwmblocks
+alias kd='killall dwmblocks'
+
 #hardware info --short
 alias hw="hwinfo --short"
 
@@ -138,7 +145,6 @@ alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
 alias yta-opus="youtube-dl --extract-audio --audio-format opus "
 alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
 #Recent Installed Packages

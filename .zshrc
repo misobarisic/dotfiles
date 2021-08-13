@@ -127,6 +127,10 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+#vim, nano
+alias v='vim'
+alias n='nano'
+
 #list
 alias ls='exa --color=auto'
 alias la='exa -a'
@@ -219,6 +223,9 @@ alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable s
 
 #quickly kill conkies
 alias kc='killall conky'
+
+#quickly kill dwmblocks
+alias kd='killall dwmblocks'
 
 #hardware info --short
 alias hw="hwinfo --short"
