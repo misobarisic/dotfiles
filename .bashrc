@@ -27,7 +27,7 @@ bind "set completion-ignore-case on"
 
 #vim, nvim, nano
 alias vim='nvim'
-alias v='vim'
+alias v='/usr/bin/vim'
 alias n='nano'
 
 #list
