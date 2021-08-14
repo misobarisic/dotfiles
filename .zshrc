@@ -112,10 +112,9 @@ setopt GLOB_DOTS
 
 export HISTCONTROL=ignoreboth:erasedups
 
-# Make vim the default
-
-export EDITOR='vim'
-export VISUAL='vim'
+# Make nvim the default
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 #PS1='[\u@\h \W]\$ '
 
@@ -127,7 +126,8 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-#vim, nano
+#vim, nvim, nano
+alias vim='nvim'
 alias v='vim'
 alias n='nano'
 
@@ -136,7 +136,7 @@ alias ls='exa --color=auto'
 alias la='exa -a'
 alias ll='exa -la --grid --long'
 alias l='exa -la'
-alias l.="exa -A | egrep '^\.'"
+alias l.="exa -a | egrep '^\.'"
 
 #clear
 alias c='clear'
