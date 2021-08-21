@@ -1,3 +1,2 @@
 #!/bin/sh
-perc=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-echo -e "$perc%"
+top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4 "%"}'
