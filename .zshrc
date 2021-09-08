@@ -130,6 +130,16 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+#shell configs
+alias bb="$EDITOR ~/.bashrc"
+alias zz="$EDITOR ~/.zshrc"
+alias ff="$EDITOR ~/.config/fish/config.fish"
+
+#print aliases
+alias ba='~/.scripts/ba.sh'
+alias fa='~/.scripts/fa.sh'
+alias za='~/.scripts/za.sh'
+
 #vim, nvim, nano
 alias vim='nvim'
 alias v='/usr/bin/vim'
@@ -286,8 +296,7 @@ alias rg="rg --sort path"
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-#nano for important configuration files
-#know what you do in these files
+#edit important config files
 alias vlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias vpacman="sudo $EDITOR /etc/pacman.conf"
 alias vgrub="sudo $EDITOR /etc/default/grub"
@@ -298,12 +307,8 @@ alias vsddm="sudo $EDITOR /etc/sddm.conf"
 alias vfstab="sudo $EDITOR /etc/fstab"
 alias vnsswitch="sudo $EDITOR /etc/nsswitch.conf"
 alias vsamba="sudo $EDITOR /etc/samba/smb.conf"
-alias bb="$EDITOR ~/.bashrc"
-alias zz="$EDITOR ~/.zshrc"
-alias ff="$EDITOR ~/.config/fish/config.fish"
 
-#gpg
-#verify signature for isos
+#gpg, verify signature for isos
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias fix-gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer

@@ -22,8 +22,18 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-#ignore upper and lowercase when TAB completion
+# ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
+
+#shell configs
+alias bb="$EDITOR ~/.bashrc"
+alias zz="$EDITOR ~/.zshrc"
+alias ff="$EDITOR ~/.config/fish/config.fish"
+
+#print aliases
+alias ba='~/.scripts/ba.sh'
+alias fa='~/.scripts/fa.sh'
+alias za='~/.scripts/za.sh'
 
 #vim, nvim, nano
 alias vim='nvim'
@@ -157,7 +167,7 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 #search content with ripgrep
 alias rg="rg --sort path"
 
-#vim for important configuration files
+#edit important config files
 alias vlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias vpacman="sudo $EDITOR /etc/pacman.conf"
 alias vgrub="sudo $EDITOR /etc/default/grub"
@@ -168,12 +178,8 @@ alias vsddm="sudo $EDITOR /etc/sddm.conf"
 alias vfstab="sudo $EDITOR /etc/fstab"
 alias vnsswitch="sudo $EDITOR /etc/nsswitch.conf"
 alias vsamba="sudo $EDITOR /etc/samba/smb.conf"
-alias bb="$EDITOR ~/.bashrc"
-alias zz="$EDITOR ~/.zshrc"
-alias ff="$EDITOR ~/.config/fish/config.fish"
 
-#gpg
-#verify signature for isos
+#gpg, verify signature for isos
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias fix-gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer
@@ -235,27 +241,9 @@ alias rmgitcache="rm -r ~/.cache/git"
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'
 
-#create a file called .bashrc-personal and put all your personal aliases
-#in there. They will not be overwritten by skel.
+# create a file called .bashrc-personal and put all your personal aliases
+# in there. They will not be overwritten by skel.
 
 [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
 
-# reporting tools - install when not installed
-# install neofetch
 neofetch
-# install screenfetch
-#screenfetch
-# install ufetch-git
-#ufetch
-# install ufetch-arco-git
-#ufetch-arco
-# install arcolinux-paleofetch-git
-#paleofetch
-# install alsi
-#alsi
-# install arcolinux-bin-git - standard on ArcoLinux isos (or sfetch - smaller)
-#hfetch
-# install lolcat
-#sfetch | lolcat
-
-#fortune | cowsay -f $(ls /usr/share/cows/ | shuf -n 1)
