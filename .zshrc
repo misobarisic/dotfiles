@@ -1,3 +1,7 @@
+#
+# ~/.zshrc
+#
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -284,18 +288,19 @@ alias jctl="journalctl -p 3 -xb"
 
 #nano for important configuration files
 #know what you do in these files
-alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
-alias npacman="sudo $EDITOR /etc/pacman.conf"
-alias ngrub="sudo $EDITOR /etc/default/grub"
-alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
-alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
-alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
-alias nsddm="sudo $EDITOR /etc/sddm.conf"
-alias nfstab="sudo $EDITOR /etc/fstab"
-alias nnsswitch="sudo $EDITOR /etc/nsswitch.conf"
-alias nsamba="sudo $EDITOR /etc/samba/smb.conf"
-alias nb="$EDITOR ~/.bashrc"
-alias nz="$EDITOR ~/.zshrc"
+alias vlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
+alias vpacman="sudo $EDITOR /etc/pacman.conf"
+alias vgrub="sudo $EDITOR /etc/default/grub"
+alias vconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
+alias vmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
+alias vmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
+alias vsddm="sudo $EDITOR /etc/sddm.conf"
+alias vfstab="sudo $EDITOR /etc/fstab"
+alias vnsswitch="sudo $EDITOR /etc/nsswitch.conf"
+alias vsamba="sudo $EDITOR /etc/samba/smb.conf"
+alias bb="$EDITOR ~/.bashrc"
+alias zz="$EDITOR ~/.zshrc"
+alias ff="$EDITOR ~/.config/fish/config.fish"
 
 #gpg
 #verify signature for isos
@@ -351,3 +356,5 @@ ex ()
 }
 
 neofetch
+#fortune | cowsay
+
