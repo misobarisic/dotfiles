@@ -6,3 +6,4 @@ cat ~/.zshrc | \
 	grep -v '^#\w*alias' | \
 	sed 's/#/ \n/g' | \
 	less
+

@@ -6,3 +6,4 @@ cat ~/.config/fish/config.fish | \
 	grep -v '^#\w*alias' | \
 	sed 's/#/ \n/g' | \
 	less
+

@@ -6,3 +6,4 @@ cat ~/.bashrc | \
 	grep -v '^#\w*alias' | \
 	sed 's/#/ \n/g' | \
 	less
+
