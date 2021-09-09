@@ -1,9 +1,10 @@
 #!/bin/bash
-# Display all active bash aliases
+# Display all active zsh aliases
 
-cat ~/.bashrc | \
+cat ~/.zshrc | \
 	grep -e '^alias\|^#\w' | \
 	grep -v '^#\w*alias' | \
 	sed 's/#/ \n/g' | \
+	sed 's/alias //g' | \
 	less
 

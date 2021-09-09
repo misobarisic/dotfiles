@@ -160,19 +160,24 @@ neofetch
 
 #shell configs
 alias gensh="~/.scripts/shell-config/generate.sh"
-alias bb="$EDITOR ~/.bashrc"
-alias zz="$EDITOR ~/.zshrc"
-alias ff="$EDITOR ~/.config/fish/config.fish"
+alias aa="$EDITOR ~/.scripts/shell-config/aliases"
+alias bb="$EDITOR ~/.scripts/shell-config/bashrc.base"
+alias zz="$EDITOR ~/.scripts/shell-config/zshrc.base"
+alias ff="$EDITOR ~/.scripts/shell-config/config.fish.base"
 
 #print aliases
-alias ba='~/.scripts/ba.sh'
-alias fa='~/.scripts/fa.sh'
-alias za='~/.scripts/za.sh'
+alias ba='~/.scripts/shell-aliases/bash-aliases.sh'
+alias fa='~/.scripts/shell-aliases/fish-aliases.sh'
+alias za='~/.scripts/shell-aliases/zsh-aliases.sh'
 
 #vim, nvim, nano
 alias vim='nvim'
 alias v='/usr/bin/vim'
 alias n='nano'
+
+#less
+alias cless='/usr/share/nvim/runtime/macros/less.sh'
+alias vless='/usr/share/vim/vim82/macros/less.sh'
 
 #list
 alias ls='exa --color=auto'
