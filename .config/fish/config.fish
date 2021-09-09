@@ -11,6 +11,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 #shell configs
+alias gensh="~/.scripts/shell-config/generate.sh"
 alias bb="$EDITOR ~/.bashrc"
 alias zz="$EDITOR ~/.zshrc"
 alias ff="$EDITOR ~/.config/fish/config.fish"
@@ -190,3 +191,4 @@ alias rmgitcache="rm -r ~/.cache/git"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'
+
