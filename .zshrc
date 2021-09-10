@@ -34,6 +34,8 @@ fi
 
 neofetch
 
+# Starship init
+eval "$(starship init zsh)"
 #shell configs
 alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
@@ -209,9 +211,9 @@ alias bls="betterlockscreen -u /usr/share/backgrounds/arcolinux/"
 alias xd="ls /usr/share/xsessions"
 
 #remove
-alias rmcache="rm -r ~/.cache"
-alias rmgitcache="rm -r ~/.cache/git"
-alias rmyaycache="rm -r ~/.cache/yay"
+alias rmcache="rm -rf ~/.cache"
+alias rmgitcache="rm -rf ~/.cache/git"
+alias rmyaycache="rm -rf ~/.cache/yay"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'

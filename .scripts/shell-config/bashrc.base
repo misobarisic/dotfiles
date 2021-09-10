@@ -34,3 +34,5 @@ shopt -s expand_aliases # expand aliases
 
 neofetch
 
+# Starship init
+eval "$(starship init bash)"

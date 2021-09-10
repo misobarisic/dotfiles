@@ -1,5 +1,5 @@
 #
-# ~/config/fish/config.fish
+# ~/.config/fish/config.fish
 #
 
 if status is-interactive
@@ -21,3 +21,5 @@ end
 set fish_greeting
 neofetch
 
+# Starship init
+starship init fish | source

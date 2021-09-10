@@ -1,0 +1,12 @@
+# Don't add a newline at the start of the prompt
+add_newline = false
+
+# Single line prompt instead of two
+[line_break]
+disabled = true
+
+# Directory settings
+[directory]
+truncation_length = 1
+truncate_to_repo = false
+fish_style_pwd_dir_length = 1

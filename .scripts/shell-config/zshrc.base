@@ -34,3 +34,5 @@ fi
 
 neofetch
 
+# Starship init
+eval "$(starship init zsh)"
