@@ -1,5 +1,5 @@
 #
-# ~/.config/fish/config.fish
+# ~/config/fish/config.fish
 #
 
 if status is-interactive
@@ -10,6 +10,14 @@ end
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+if [ -d "$HOME/.bin" ]
+  set PATH "$HOME/.bin:$PATH"
+end
+
+if [ -d "$HOME/.local/bin" ]
+  set PATH "$HOME/.local/bin:$PATH"
+end
+
 set fish_greeting
 neofetch
 
@@ -17,6 +25,7 @@ neofetch
 alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
 alias bb="$EDITOR ~/.scripts/shell-config/bashrc.base"
+alias bz="$EDITOR ~/.scripts/shell-config/bz.shared"
 alias zz="$EDITOR ~/.scripts/shell-config/zshrc.base"
 alias ff="$EDITOR ~/.scripts/shell-config/config.fish.base"
 
@@ -95,13 +104,9 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 #add new fonts
 alias update-fc='sudo fc-cache -fv'
 
-#copy bashrc-latest over on bashrc - cb= copy bashrc
-alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
-#copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
-#alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
-
-#switch between bash and zsh
+#switch between bash, fish and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 #switch between lightdm and sddm
@@ -174,11 +179,7 @@ alias fix-gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-key
 alias fix-key="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ ; echo 'done'"
 
 #fixes
-alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
-
-#maintenance
-alias big="expac -H M '%m\t%n' | sort -h | nl"
-alias downgrada="sudo downgrade --ala-url https://bike.seedhost.eu/arcolinux/"
+alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local ~/.scripts"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
@@ -195,7 +196,9 @@ alias bls="betterlockscreen -u /usr/share/backgrounds/arcolinux/"
 alias xd="ls /usr/share/xsessions"
 
 #remove
+alias rmcache="rm -r ~/.cache"
 alias rmgitcache="rm -r ~/.cache/git"
+alias rmyaycache="rm -r ~/.cache/yay"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'
