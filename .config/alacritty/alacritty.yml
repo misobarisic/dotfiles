@@ -103,22 +103,22 @@ scrolling:
 
 font:
   normal:
-    family: hack
+    family: "JetBrains Mono"
     style: Regular
 
   bold:
-    family: hack
+    family: "JetBrains Mono"
     style: Bold
 
   italic:
-    family: hack
+    family: "JetBrains Mono"
     style: Italic
 
   bold_italic:
-    family: monospace
+    family: "JetBrains Mono"
     style: Bold Italic
 
-  size: 11.0
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -209,7 +209,6 @@ colors:
   #  text: CellBackground
   #  background: CellForeground
 
-  # Pure Nord except blue which has been brightened
   # Normal colors
   normal:
     black:   '#000000'
@@ -223,7 +222,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '#4e4e4e'
+    black:   '#4b5563'
     red:     '#ff5370'
     green:   '#c3e88d'
     yellow:  '#ffcb6b'
