@@ -1,9 +1,16 @@
 # dotfiles
 
 ## Installation
-This repo contains a shell script which installs my build of dwm, dwmblocks, dmenu, st and surf. It also copies all of the dotfiles to their respective locations. The script does not install the expected fonts which are JetBrains Mono, Hack and FontAwesome Icons. You may install them manually.  
+This repo contains a shell script which installs my build of dwm, dwmblocks, dmenu, st and surf. It also copies all of the dotfiles to their respective locations. 
 
-Just run
+Arch based systems:
+```
+curl -s https://gitlab.com/misobarisic/dotfiles/-/raw/master/.scripts/install-arch.sh | bash
+```
+**NOTE** This script also installs a few additional programs. If you wish to only install my builds of suckless' software and use my dotfiles. Refer to `Others`.
+
+
+Others :
 ```
 curl -s https://gitlab.com/misobarisic/dotfiles/-/raw/master/.scripts/install.sh | bash
 ```
