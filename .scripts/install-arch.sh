@@ -30,7 +30,7 @@ cp -r "$install_path/dotfiles/.config" "$HOME/"
 cp -r "$install_path/dotfiles/.scripts" "$HOME/"
 
 # Pacman / Yay
-sudo pacman -S yay-bin
-yay -S vim neovim htop ranger nemo nautilus pcmanfm nitrogen bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty urxvt xterm
+sudo pacman -S --noconfirm yay-bin
+yay -S --noconfirm vim neovim htop ranger nemo nautilus pcmanfm nitrogen bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty urxvt xterm
 
 echo "Installation complete!"
