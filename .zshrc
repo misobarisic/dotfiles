@@ -58,12 +58,13 @@ alias vc='$EDITOR ~/.vimrc'
 
 #less
 alias cless='/usr/share/nvim/runtime/macros/less.sh'
+alias nless='/usr/share/nvim/runtime/macros/less.sh'
 alias vless='/usr/share/vim/vim82/macros/less.sh'
 
 #list
 alias ls='exa --color=auto'
 alias la='exa -a'
-alias ll='exa -la --grid --long'
+alias ll='exa -la --grid'
 alias l='exa -la'
 alias l.="exa -a | egrep '^\.'"
 
