@@ -30,6 +30,11 @@ alias ll='exa -la --grid'
 alias l='exa -la'
 alias l.="exa -a | egrep '^\.'"
 
+#cd
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
 #clear
 alias c='clear'
 

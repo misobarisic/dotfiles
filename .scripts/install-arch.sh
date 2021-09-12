@@ -26,6 +26,7 @@ cd "$install_path/surf"; sudo make clean install
 # Copy dotfiles
 cp "$install_path/dotfiles/.bashrc" "$HOME/"
 cp "$install_path/dotfiles/.zshrc" "$HOME/"
+cp -r "$install_path/dotfiles/.bin" "$HOME/"
 cp -r "$install_path/dotfiles/.config" "$HOME/"
 cp -r "$install_path/dotfiles/.scripts" "$HOME/"
 

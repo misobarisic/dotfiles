@@ -18,12 +18,16 @@ setopt GLOB_DOTS
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# History
+HISTSIZE = 1000000
+HISTFILESIZE = 1000000000
 export HISTCONTROL=ignoreboth:erasedups
 
 # Make nvim the default
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# User specific PATH
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -36,6 +40,7 @@ neofetch
 
 # Starship init
 eval "$(starship init zsh)"
+
 #shell configs
 alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
@@ -67,6 +72,11 @@ alias la='exa -a'
 alias ll='exa -la --grid'
 alias l='exa -la'
 alias l.="exa -a | egrep '^\.'"
+
+#cd
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 
 #clear
 alias c='clear'
