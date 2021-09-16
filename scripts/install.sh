@@ -49,7 +49,7 @@ echo -e "[*] Refreshing font cache..."; fc-cache -v; sleep 1
 echo -e "[*] Installing dependencies..."; sleep 1
 if grep "Arch\|Artix\|EndeavourOS\|Manjaro" /etc/*-release; then
        sudo pacman --noconfirm -Syu
-       depends="vim neovim htop ranger nemo nautilus pcmanfm nitrogen bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty urxvt xterm starship"
+       depends="vim neovim htop ranger nemo nautilus pcmanfm nitrogen bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty rxvt-unicode xterm starship"
 
        if [[ -e /usr/bin/paru ]]; then
            echo -e "[*] paru detected. Installing dependencies..."
