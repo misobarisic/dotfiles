@@ -34,6 +34,7 @@ cd $install_path/surf; sudo make clean install
 echo -e "[*] Copying dotfiles/config/backgrounds..."; sleep 1
 cp $install_path/dotfiles/bashrc $HOME/.bashrc
 cp $install_path/dotfiles/zshrc $HOME/.zshrc
+cp $install_path/dotfiles/fonts.conf $HOME/.config/fontconfig/fonts.conf
 cp $install_path/dotfiles/Xresources $HOME/.Xresources
 mkdir -p $HOME/.bin
 cp -r $install_path/dotfiles/bin/* $HOME/.bin/
@@ -50,7 +51,7 @@ echo -e "[*] Refreshing font cache..."; fc-cache -v; sleep 1
 echo -e "[*] Installing dependencies..."; sleep 1
 if grep "Arch\|Artix\|EndeavourOS\|Manjaro" /etc/*-release; then
        sudo pacman --noconfirm -Syu
-       depends="vim neovim htop ranger nemo nautilus pcmanfm nitrogen bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty rxvt-unicode xterm starship"
+       depends="bash zsh oh-my-zsh-git fish vim neovim htop ranger nemo nautilus pcmanfm nitrogen picom lxappearance bitwarden-bin firefox brave-bin vscodium-bin bat ristretto mirage gimp filezilla alacritty kitty rxvt-unicode xterm starship"
 
        if [[ -e /usr/bin/paru ]]; then
            echo -e "[*] paru detected. Installing dependencies..."

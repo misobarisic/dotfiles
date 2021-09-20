@@ -5,7 +5,7 @@ This repo contains a shell script which installs my build of dwm, dwmblocks, dme
 
 Just run:
 ```
-curl -s https://gitlab.com/misobarisic/dotfiles/-/raw/master/.scripts/install.sh | bash
+curl -s https://gitlab.com/misobarisic/dotfiles/-/raw/master/scripts/install.sh | bash
 ```
 
 ## Shell config files
