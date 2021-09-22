@@ -1,2 +1,2 @@
 #!/bin/sh
-top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4 "%"}'
+top -b -n1 | grep "Cpu(s)" | awk '{print int($2 + $4) "%"}'
