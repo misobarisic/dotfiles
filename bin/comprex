@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+#################################
+# Simple xz compression utility #
+#################################
+
+# Params
+# $1 - input file/files/directory
+# $2 - output file
+# $3 - compression level
+
+# Script start
+if [ -z "$1$2$3" ] 
+  then 
+    echo "Usage: comprex <input> <output> <compression level>"; exit 0
+elif [ -z "$3" ]
+  then
+    echo "Make sure to specify the compression level."; exit 0
+elif [ -z "$2" ]
+  then
+    echo "Make sure to specify the output file."; exit 0
+fi
+
+tar cvf $2 --use-compress-program="xz -$3" $1
