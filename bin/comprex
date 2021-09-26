@@ -21,4 +21,4 @@ elif [ -z "$2" ]
     echo "Make sure to specify the output file."; exit 0
 fi
 
-tar cvf $2 --use-compress-program="xz -$3" $1
+tar cvf $2 --use-compress-program="xz -$3T0" $1
