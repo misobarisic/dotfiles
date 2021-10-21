@@ -53,6 +53,12 @@ alias gp='git push'
 alias gpo='git push -u origin'
 alias gss='git status'
 
+#docker
+alias dc="docker-compose"
+alias dcoekr="docker"
+alias dokcer="docker"
+alias docekr="docker"
+
 #fix obvious typo's
 alias cd..='cd ..'
 alias pdw="pwd"
@@ -65,6 +71,9 @@ alias updqte='sudo pacman -Syyu'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+#auto-cpufreq
+alias cf='auto-cpufreq --stats'
 
 #readable output
 alias df='df -h'
