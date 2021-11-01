@@ -1,57 +1,50 @@
 #
-# ~/.config/fish/config.fish
+# ~/.zshrc
 #
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+export ZSH=/usr/share/oh-my-zsh/
 
-# Make nvim the default editor
+ZSH_THEME="sunaku"
+# ZSH_THEME="jbergantine"
+
+# ENABLE_CORRECTION="true"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+setopt GLOB_DOTS
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# History
+HISTSIZE=2500
+HISTFILESIZE=5000
+export HISTCONTROL=ignoreboth:erasedups
+
+# Make nvim the default
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-if [ -d "$HOME/.bin" ]
-  set PATH "$HOME/.bin:$PATH"
-end
+# User specific PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
 
-if [ -d "$HOME/.local/bin" ]
-  set PATH "$HOME/.local/bin:$PATH"
-end
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
 
-if [ -d "$HOME/.yarn/bin" ]
-  set PATH "$HOME/.yarn/bin:$PATH"
-end
+if [ -d "$HOME/.yarn/bin" ] ;
+  then PATH="$HOME/.yarn/bin:$PATH"
+fi
 
-set fish_greeting
-#neofetch
-fortune | cowsay -f (find /usr/share/cows | shuf -n 1)
-
-function bind_bang
-    switch (commandline -t)[-1]
-        case "!"
-            commandline -t $history[1]; commandline -f repaint
-        case "*"
-            commandline -i !
-    end
-end
-
-function bind_dollar
-    switch (commandline -t)[-1]
-        case "!"
-            commandline -t ""
-            commandline -f history-token-search-backward
-        case "*"
-            commandline -i '$'
-    end
-end
-
-function fish_user_key_bindings
-    bind ! bind_bang
-    bind '$' bind_dollar
-end
+neofetch
 
 # Starship init
-starship init fish | source
+eval "$(starship init zsh)"
+
 #shell configs
 alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
@@ -206,7 +199,7 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
 #Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 #search content with ripgrep
 alias rg="rg --sort path"
