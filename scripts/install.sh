@@ -32,8 +32,8 @@ cd $install_path/surf; sudo make clean install
 
 # Copy dotfiles
 echo -e "[*] Copying dotfiles/config/backgrounds..."; sleep 1
-cp $install_path/dotfiles/bashrc $HOME/.bashrc
-cp $install_path/dotfiles/zshrc $HOME/.zshrc
+cp $install_path/dotfiles/.bashrc $HOME/.bashrc
+cp $install_path/dotfiles/.zshrc $HOME/.zshrc
 cp $install_path/dotfiles/fonts.conf $HOME/.config/fontconfig/fonts.conf
 cp $install_path/dotfiles/Xresources $HOME/.Xresources
 mkdir -p $HOME/.bin
