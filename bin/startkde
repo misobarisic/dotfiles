@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+startx ~/.config/xorg/.xinitrc.plasma

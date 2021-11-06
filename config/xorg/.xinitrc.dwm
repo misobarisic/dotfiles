@@ -1,0 +1,15 @@
+/usr/bin/prime-offload &
+xrdb -merge ~/.Xresources &
+setxkbmap hr &
+eval `ssh-agent`
+mouse
+
+# gnome keyring daemon
+# eval $(gnome-keyring-daemon --start)
+# export SSH_AUTH_SOCK
+
+# JetBrains Fix
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+lxsession &
+exec dwm
