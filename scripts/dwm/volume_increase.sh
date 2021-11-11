@@ -6,4 +6,5 @@ change="5%"
 
 amixer -q sset Master "$change+"
 kill -44 $(pidof dwmblocks)
-dunstify -a "changeVolume" -u low -t $time -i audio-volume-muted -r "$msgId" "Volume increased by $change" 
+current="$(amixer sget Master | grep "Left:" | awk -F '[][]' '{print $2}')"
+dunstify -a "changeVolume" -u low -t $time -i audio-volume-muted -r "$msgId" "Volume increased by $change. Set to $current." 
