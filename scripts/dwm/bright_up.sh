@@ -6,4 +6,4 @@ change=5
 
 xbacklight "+$change"
 current=$(xbacklight -get)
-dunstify -a "changeBrightness" -u low -t $time -r "$msgId" "Brightness increased by $change%. Set to $current%." 
+dunstify -a "changeBrightness" -u low -t $time -h int:value:$current -r "$msgId" "Brightness increased by $change%. Set to $current%." 
