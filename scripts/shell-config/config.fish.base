@@ -56,15 +56,15 @@ function fish_user_key_bindings
 end
 
 # Starship init
-if [ -z $(command -v starship) ]
+if set -q (command -v starship)
 	:
 else
 	starship init fish | source
 end
 
 # exa / ls
-if [ -z $(command -v exa) ]
-	set ls "ls"
+if set -q (command -v exa)
+	set ls_cmd "ls"
 else
-	set ls "exa"
+	set ls_cmd "exa"
 end

@@ -1,5 +1,4 @@
 #shell configs
-alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
 alias bb="$EDITOR ~/.scripts/shell-config/bashrc.base"
 alias bz="$EDITOR ~/.scripts/shell-config/bz.shared"
@@ -24,11 +23,11 @@ alias nless='/usr/share/nvim/runtime/macros/less.sh'
 alias vless='/usr/share/vim/vim82/macros/less.sh'
 
 #list
-alias ls='exa -a'
-alias la='exa -la'
-alias ll='exa -la --grid'
-alias l='exa -a'
-alias l.="exa -a | egrep '^\.'"
+alias ls='$ls_cmd'
+alias la='$ls_cmd -a'
+alias ll='$ls_cmd -la --grid'
+alias l='$ls_cmd -la'
+alias l.="$ls_cmd -a | egrep '^\.'"
 
 #cd
 alias ..='cd ..'
