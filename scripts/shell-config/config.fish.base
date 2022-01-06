@@ -9,6 +9,7 @@ end
 # Make nvim the default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 if [ -d "$HOME/.bin" ]
   set PATH "$HOME/.bin:$PATH"
@@ -22,9 +23,13 @@ if [ -d "$HOME/.yarn/bin" ]
   set PATH "$HOME/.yarn/bin:$PATH"
 end
 
+if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]
+  set PATH "$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+end
+
 set fish_greeting
 #neofetch
-fortune | cowsay -f (find /usr/share/cows | shuf -n 1)
+#fortune | cowsay -f (find /usr/share/cows | shuf -n 1)
 
 function bind_bang
     switch (commandline -t)[-1]
@@ -51,4 +56,15 @@ function fish_user_key_bindings
 end
 
 # Starship init
-starship init fish | source
+if [ -z $(command -v starship) ]
+	:
+else
+	starship init fish | source
+end
+
+# exa / ls
+if [ -z $(command -v exa) ]
+	set ls "ls"
+else
+	set ls "exa"
+end

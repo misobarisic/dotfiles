@@ -13,6 +13,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # Make nvim the default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 PS1='[\u@\h \W]\$ '
 
@@ -40,8 +41,19 @@ shopt -s dotglob
 shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
 
-neofetch
+#neofetch
 
 # Starship init
-eval "$(starship init bash)"
+if [ -z $(command -v starship) ]; then
+	:
+else
+	eval "$(starship init bash)"
+fi
+
+# exa / ls
+if [ -z $(command -v exa) ]; then
+	ls="ls"
+else
+	ls="exa"
+fi
 

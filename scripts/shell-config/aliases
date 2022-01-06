@@ -24,10 +24,10 @@ alias nless='/usr/share/nvim/runtime/macros/less.sh'
 alias vless='/usr/share/vim/vim82/macros/less.sh'
 
 #list
-alias ls='exa --color=auto'
-alias la='exa -a'
+alias ls='exa -a'
+alias la='exa -la'
 alias ll='exa -la --grid'
-alias l='exa -la'
+alias l='exa -a'
 alias l.="exa -a | egrep '^\.'"
 
 #cd
@@ -111,6 +111,9 @@ alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 #switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
+
+#killall
+alias ka='killall'
 
 #quickly kill conkies
 alias kc='killall conky'
@@ -198,6 +201,7 @@ alias xd="ls /usr/share/xsessions"
 alias rmcache="rm -rf ~/.cache"
 alias rmgitcache="rm -rf ~/.cache/git"
 alias rmyaycache="rm -rf ~/.cache/yay"
+alias rmyarncache="rm -rf ~/.cache/yarn"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'

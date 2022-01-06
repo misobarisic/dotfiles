@@ -26,6 +26,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # Make nvim the default
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # User specific PATH
 if [ -d "$HOME/.bin" ] ;
@@ -40,8 +41,19 @@ if [ -d "$HOME/.yarn/bin" ] ;
   then PATH="$HOME/.yarn/bin:$PATH"
 fi
 
-neofetch
+#neofetch
 
 # Starship init
-eval "$(starship init zsh)"
+if [ -z $(command -v starship) ]; then
+	:
+else
+	eval "$(starship init zsh)"
+fi
+
+# exa / ls
+if [ -z $(command -v exa) ]; then
+	ls="ls"
+else
+	ls="exa"
+fi
 
