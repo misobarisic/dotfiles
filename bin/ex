@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ex = EXtractor for all kinds of archives
 # usage: ex <file>

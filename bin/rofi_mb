@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rofi -i -show drun -modi drun -show-icons -font "hack 16"
