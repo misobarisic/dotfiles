@@ -13,6 +13,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # Make nvim the default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 PS1='[\u@\h \W]\$ '
 
@@ -40,13 +41,23 @@ shopt -s dotglob
 shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
 
-neofetch
+#neofetch
 
 # Starship init
-eval "$(starship init bash)"
+if [ -z $(command -v starship) ]; then
+	:
+else
+	eval "$(starship init bash)"
+fi
+
+# exa / ls
+if [ -z $(command -v exa) ]; then
+	ls_cmd="ls"
+else
+	ls_cmd="exa"
+fi
 
 #shell configs
-alias gensh="~/.scripts/shell-config/generate.sh"
 alias aa="$EDITOR ~/.scripts/shell-config/aliases"
 alias bb="$EDITOR ~/.scripts/shell-config/bashrc.base"
 alias bz="$EDITOR ~/.scripts/shell-config/bz.shared"
@@ -71,11 +82,11 @@ alias nless='/usr/share/nvim/runtime/macros/less.sh'
 alias vless='/usr/share/vim/vim82/macros/less.sh'
 
 #list
-alias ls='exa --color=auto'
-alias la='exa -a'
-alias ll='exa -la --grid'
-alias l='exa -la'
-alias l.="exa -a | egrep '^\.'"
+alias ls='$ls_cmd --color=auto'
+alias la='$ls_cmd -a --color=auto'
+alias ll='$ls_cmd -la --grid --color=auto'
+alias l='$ls_cmd -la --color=auto'
+alias l.="$ls_cmd -a --color=auto | egrep '^\.'"
 
 #cd
 alias ..='cd ..'
@@ -84,6 +95,9 @@ alias ....='cd ../../../'
 
 #clear
 alias c='clear'
+
+#distrobox
+alias dbx='distrobox'
 
 #git
 alias g='git'
@@ -99,6 +113,9 @@ alias gms='git merge --squash'
 alias gp='git push'
 alias gpo='git push -u origin'
 alias gss='git status'
+
+#podman
+alias pd="podman"
 
 #docker
 alias dc="docker-compose"
@@ -158,6 +175,9 @@ alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 #switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
+
+#killall
+alias ka='killall'
 
 #quickly kill conkies
 alias kc='killall conky'
@@ -245,6 +265,7 @@ alias xd="ls /usr/share/xsessions"
 alias rmcache="rm -rf ~/.cache"
 alias rmgitcache="rm -rf ~/.cache/git"
 alias rmyaycache="rm -rf ~/.cache/yay"
+alias rmyarncache="rm -rf ~/.cache/yarn"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'
