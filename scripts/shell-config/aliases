@@ -57,6 +57,10 @@ alias gss='git status'
 
 #podman
 alias pd="podman"
+alias pdi="podman images"
+alias pdp="podman pull"
+alias pdr="podman rm"
+alias pdc="podman ps -a"
 
 #docker
 alias dc="docker-compose"
