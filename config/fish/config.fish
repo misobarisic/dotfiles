@@ -23,6 +23,10 @@ if [ -d "$HOME/.yarn/bin" ]
   set PATH "$HOME/.yarn/bin:$PATH"
 end
 
+if [ -d "$HOME/.cargo/bin" ]
+  set PATH "$HOME/.cargo/bin:$PATH"
+end
+
 if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]
   set PATH "$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 end
@@ -117,7 +121,7 @@ alias gb='git branch'
 alias gbd='git branch -D'
 alias gc='git commit'
 alias gcb='git checkout -b'
-alias gcm='git commit -m'
+alias gcm='git commit -S -m'
 alias gce='git checkout'
 alias gm='git merge'
 alias gms='git merge --squash'
@@ -127,6 +131,10 @@ alias gss='git status'
 
 #podman
 alias pd="podman"
+alias pdi="podman images"
+alias pdp="podman pull"
+alias pdr="podman rm"
+alias pdc="podman ps -a"
 
 #docker
 alias dc="docker-compose"
