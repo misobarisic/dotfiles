@@ -30,6 +30,10 @@ if [ -d "$HOME/.yarn/bin" ] ;
   then PATH="$HOME/.yarn/bin:$PATH"
 fi
 
+if [ -d "$HOME/.cargo/bin" ] ;
+  then PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
@@ -106,7 +110,7 @@ alias gb='git branch'
 alias gbd='git branch -D'
 alias gc='git commit'
 alias gcb='git checkout -b'
-alias gcm='git commit -m'
+alias gcm='git commit -S -m'
 alias gce='git checkout'
 alias gm='git merge'
 alias gms='git merge --squash'
@@ -116,6 +120,10 @@ alias gss='git status'
 
 #podman
 alias pd="podman"
+alias pdi="podman images"
+alias pdp="podman pull"
+alias pdr="podman rm"
+alias pdc="podman ps -a"
 
 #docker
 alias dc="docker-compose"
