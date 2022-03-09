@@ -28,12 +28,15 @@ call plug#begin('~/.vim/plugged')
 "    Plug 'jreybert/vimagit'                            " Magit-like plugin for vim
     Plug 'tpope/vim-fugitive'                          " Git integration
     Plug 'tpope/vim-surround'                          " Change surrounding marks
+
 "    Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
 "    Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
     Plug 'vim-python/python-syntax'                    " Python highlighting
     Plug 'rust-lang/rust.vim'			       " Rust highlighting
     Plug 'pulkomandy/c.vim'                            " Better C/C++ highlighting
     Plug 'vim-syntastic/syntastic'		       " All round syntax checker
+"    Plug 'dense-analysis/ale'			       " Syntax checker
+
     Plug 'ap/vim-css-color'                            " Color previews for CSS
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
@@ -240,6 +243,8 @@ set guifont=SauceCodePro\ Nerd\ Font:h15
 "set guifont=Mononoki\ Nerd\ Font:h15
 "set guifont=JetBrains\ Mono:h15
 
+map <C-g> :Git<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -251,6 +256,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+map <C-s> :SyntasticToggleMode<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Limelight
