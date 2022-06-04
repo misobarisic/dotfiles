@@ -127,14 +127,17 @@ alias gm='git merge'
 alias gms='git merge --squash'
 alias gp='git push'
 alias gpo='git push -u origin'
+alias gpl='git pull'
 alias gss='git status'
 
 #podman
+alias pomdan="podman"
 alias pd="podman"
 alias pdi="podman images"
 alias pdp="podman pull"
 alias pdr="podman rm"
 alias pdc="podman ps -a"
+alias pc="podman-compose"
 
 #docker
 alias dc="docker-compose"
