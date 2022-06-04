@@ -45,6 +45,9 @@ cp -r $install_path/dotfiles/scripts/* $HOME/.scripts/
 mkdir -p $HOME/.local/share/fonts
 cp -r $install_path/dotfiles/fonts/* $HOME/.local/share/fonts/
 
+sudo mkdir -p /etc/containers
+sudo cp $install_path/etc/containers/registries.conf /etc/containers/
+
 echo -e "[*] Refreshing font cache..."; fc-cache -v; sleep 1
 
 # Dependencies
