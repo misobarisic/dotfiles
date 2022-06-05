@@ -47,6 +47,8 @@ cp -r $install_path/dotfiles/fonts/* $HOME/.local/share/fonts/
 
 sudo mkdir -p /etc/containers
 sudo cp $install_path/etc/containers/registries.conf /etc/containers/
+sudo mkdir -p /etc/xdg
+sudo cp $install_path/etc/xdg/reflector /etc/xdg/reflector
 
 echo -e "[*] Refreshing font cache..."; fc-cache -v; sleep 1
 
