@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+optimus-manager --switch nvidia --no-confirm
