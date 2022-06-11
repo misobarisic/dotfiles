@@ -13,8 +13,5 @@ export SSH_AUTH_SOCK
 # JetBrains Fix
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# bw-cli
-export BW_SESSION="qloaWGUThGLkQguuOnSNGEjREyjtjmHEITD+Jk+FSkIB70OfzscCHLyp8q5tCUYcBv4h9Ede+CjdN42LFgQeug==3"
-
 lxsession &
 exec dwm
