@@ -1,3 +1,21 @@
 #!/bin/sh
 
-acpi -b | awk '{print $4}' | sed 's/,//g'
+full=
+empty=
+half=
+quarter=
+three_quarters=
+
+a=$(acpi -b | awk '{print $4}' | sed 's/%,//g')
+
+if [ "$a" -ge 85 ]; then
+	echo "$full ${a}%"
+elif [ "$a" -ge 60 ]; then
+	echo "$three_quarters ${a}%"
+elif [ "$a" -ge 40 ]; then
+	echo "$half ${a}%"
+elif [ "$a" -ge 20 ]; then
+	echo "$quarter ${a}%"
+else
+	echo "$empty ${a}%"
+fi
