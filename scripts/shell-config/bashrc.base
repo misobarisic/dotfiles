@@ -51,7 +51,7 @@ shopt -s expand_aliases # expand aliases
 if [ -z $(command -v starship) ]; then
 	:
 else
-	eval "$(starship init bash)"
+	eval "$(starship init bash 2> /dev/null)"
 fi
 
 # exa / ls

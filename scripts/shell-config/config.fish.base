@@ -63,7 +63,7 @@ end
 if set -q (command -v starship)
 	:
 else
-	starship init fish | source
+	starship init fish 2> /dev/null | source
 end
 
 # exa / ls

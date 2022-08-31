@@ -52,7 +52,7 @@ fi
 if [ -z $(command -v starship) ]; then
 	:
 else
-	eval "$(starship init zsh)"
+	eval "$(starship init zsh 2> /dev/null)"
 fi
 
 # exa / ls
