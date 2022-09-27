@@ -1,4 +1,4 @@
-"
+
 " ~/.config/nvim/init.vim
 "
 
@@ -17,10 +17,10 @@ call plug#begin('~/.vim/plugged')
 "{{ The Basics }}
     Plug 'gmarik/Vundle.vim'                           " Vundle
     Plug 'itchyny/lightline.vim'                       " Lightline statusbar
-    Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
+"    Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
     Plug 'frazrepo/vim-rainbow'
     Plug 'vifm/vifm.vim'                               " Vifm
-    Plug 'kien/ctrlp.vim'                              " Fuzzy file search
+    Plug 'ctrlpvim/ctrlp.vim'                          " Fuzzy file search
     Plug 'scrooloose/nerdtree'                         " Nerdtree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
 "    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
@@ -37,6 +37,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-syntastic/syntastic'		       " All round syntax checker
 "    Plug 'dense-analysis/ale'			       " Syntax checker
 
+    Plug 'preservim/tagbar'				" Tags 
+"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
+    Plug 'Shougo/ddc.vim'
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
+    Plug 'Shougo/ddc-matcher_head'
+    Plug 'Shougo/ddc-sorter_rank'
+    Plug 'Shougo/ddc-around'
+    Plug 'Shougo/pum.vim'
+    Plug 'tani/ddc-fuzzy'
+    Plug 'LumaKernel/ddc-tabnine'
+    Plug 'vim-denops/denops.vim'
+    
+    Plug 'jiangmiao/auto-pairs'				" 
     Plug 'ap/vim-css-color'                            " Color previews for CSS
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
@@ -44,6 +58,8 @@ call plug#begin('~/.vim/plugged')
 
 
 call plug#end()
+
+nmap <F8> :TagbarToggle<CR>
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -263,3 +279,87 @@ map <C-s> :SyntasticToggleMode<CR>
 " => Limelight
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:limelight_conceal_ctermfg = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Autopairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete (not in use)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => DDC
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+inoremap <C-k>   <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <C-j>   <Cmd>call pum#map#insert_relative(-1)<CR>
+inoremap <C-z>   <Cmd>call pum#map#confirm()<CR>
+"inoremap <C-Enter> <Cmd>call pum#map#confirm()<CR>
+inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+
+
+" Customize global settings
+" Use around source.
+call ddc#custom#patch_global('sources', ['around', 'tabnine'])
+
+" Use matcher_head and sorter_rank.
+call ddc#custom#patch_global('sourceOptions', {
+      \ '_': {
+      \   'matchers': ['matcher_fuzzy'],
+      \   'sorters': ['sorter_rank', 'sorter_fuzzy'],
+      \   'converters': ['converter_fuzzy'] 
+      \ },
+      \ 'tabnine': {
+      \   'mark': 'TN',
+      \   'maxCandidates': 5,
+      \   'isVolatile': v:true,
+      \ },
+      \ })
+
+
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+call ddc#custom#patch_global('filterParams', {
+  \   'matcher_fuzzy': {
+  \     'splitMode': 'character'
+  \   }
+  \ })
+
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', {
+      \ 'around': {'mark': 'A'},
+      \ })
+call ddc#custom#patch_global('sourceParams', {
+      \ 'around': {'maxSize': 500},
+      \ })
+
+" Customize settings on a filetype
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sources', ['around', 'clangd'])
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', {
+      \ 'clangd': {'mark': 'C'},
+      \ })
+call ddc#custom#patch_filetype('markdown', 'sourceParams', {
+      \ 'around': {'maxSize': 100},
+      \ })
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ ddc#map#pum_visible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
