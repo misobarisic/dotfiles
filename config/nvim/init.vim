@@ -28,6 +28,10 @@ call plug#begin('~/.vim/plugged')
 "    Plug 'jreybert/vimagit'                            " Magit-like plugin for vim
     Plug 'tpope/vim-fugitive'                          " Git integration
     Plug 'tpope/vim-surround'                          " Change surrounding marks
+	
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
     Plug 'tanvirtin/monokai.nvim'                      " Theme
 "    Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
@@ -115,8 +119,8 @@ set noshowmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set smarttab                    " Be smart using tabs ;)
 " set expandtab                   " Use spaces instead of tabs.
-" set shiftwidth=4                " One tab == four spaces.
-" set tabstop=4                   " One tab == four spaces.
+set shiftwidth=4                " One tab == four spaces.
+set tabstop=4                   " One tab == four spaces.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -402,3 +406,13 @@ colorscheme monokai_pro
 "colorscheme monokai_soda
 "colorscheme monokai_ristretto
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Telescope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
