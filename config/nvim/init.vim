@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                          " Git integration
     Plug 'tpope/vim-surround'                          " Change surrounding marks
 
+    Plug 'tanvirtin/monokai.nvim'                      " Theme
 "    Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
 "    Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
     Plug 'vim-python/python-syntax'                    " Python highlighting
@@ -363,3 +364,41 @@ inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
 
 " Use ddc.
 call ddc#enable()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Netrw
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" netrw configs
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+" Open file under cursor same window down
+nnoremap <leader>oj :wincmd f<CR>
+map <leader>oj :wincmd f<CR>
+
+" Open file under cursor same window left
+nnoremap <leader>ol :vertical wincmd f<CR>
+map <leader>ol :vertical wincmd f<CR>
+
+" Open file under cursor new window
+nnoremap <leader>o<leader> :wincmd gf<CR>
+map <leader>o<leader> :wincmd gf<CR>
+
+" File Manager
+" https://superuser.com/questions/31677/how-do-i-open-the-directory-of-the-current-open-file
+map <leader>.j :Sex<CR>
+map <leader>.h :Vex<CR>
+map <leader>f. :30vs .<CR>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+syntax on
+"colorscheme monokai
+colorscheme monokai_pro
+"colorscheme monokai_soda
+"colorscheme monokai_ristretto
+
